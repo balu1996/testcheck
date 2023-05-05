@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinicapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: petclinicapp
+  template:
+    metadata:
+      labels:
+        app: petclinicapp
+    spec:
+      containers:
+      - name: petclinicapp
+        image: 190344882422.dkr.ecr.ap-south-1.amazonaws.com/hello:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        
